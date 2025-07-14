@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Selamat Ulang Tahun, Sayang!</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap"
+      rel="stylesheet" />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <style>
+      body {
+        font-family: "Quicksand", sans-serif;
+        background-color: #111;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+      }
+      h1,
+      h4,
+      footer {
+        font-family: "Pacifico", cursive;
+        color: #d62828;
+      }
+      .landing-page,
+      .main-page,
+      .loading-page {
+        min-height: 100vh;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+      }
+      .landing-page {
+        display: flex;
+      }
+      .btn-mulai,
+      .btn-love {
+        background-color: #d62828;
+        color: #fff;
+        border: none;
+        font-weight: bold;
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
+        transition: all 0.3s ease;
+      }
+      .btn-mulai:hover,
+      .btn-love:hover {
+        background-color: #a61c1c;
+      }
+      .spinner-border {
+        width: 3rem;
+        height: 3rem;
+      }
+      .carousel-inner img {
+        height: 250px;
+        object-fit: cover;
+        border-radius: 16px;
+        filter: brightness(0.9);
+      }
+      .message-box {
+        background: #1c1c1c;
+        color: #f5f5f5;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+        margin-top: 30px;
+      }
+      .card-quote {
+        background-color: #222;
+        border: 2px solid #d62828;
+        color: #f8dcdc;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(255, 0, 0, 0.15);
+        padding: 15px;
+        margin-bottom: 15px;
+      }
+      .list-group-item {
+        background: transparent;
+        color: #e6e6e6;
+        border: none;
+      }
+      footer {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 1.1em;
+        color: #ccc;
+      }
+      #music-box {
+        display: none;
+      }
+
+      /* Kalender */
+      .calendar-box {
+        max-width: 350px;
+        margin: 0 auto;
+        background: #1a1a1a;
+        border-radius: 12px;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
+      }
+      .calendar-header {
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+        color: #f8dcdc;
+      }
+      .calendar-body {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+      }
+      .calendar-day {
+        text-align: center;
+        font-weight: bold;
+        color: #ccc;
+      }
+      .calendar-cell {
+        text-align: center;
+        padding: 10px 0;
+        border-radius: 8px;
+        background-color: #2a2a2a;
+        color: #fff;
+      }
+      .calendar-cell.highlight {
+        background-color: #d62828;
+        font-weight: bold;
+        color: #fff;
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+      }
+      .calendar-cell.empty {
+        background: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Landing Page -->
+    <div class="landing-page" id="landing">
+      <h1 data-aos="zoom-in">Hello, This Is For You💕</h1>
+      <p data-aos="fade-up">For My Favorite Person</p>
+      <button
+        class="btn-mulai"
+        onclick="startLoading()"
+        data-aos="fade-up"
+        data-aos-delay="200">
+        ❤️‍🔥 Jommm Mulaii ❤️‍🔥
+      </button>
+    </div>
+
+    <!-- Loading Page -->
+    <div class="loading-page" id="loading">
+      <div class="text-center">
+        <div class="spinner-border text-danger mb-4" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <h5>Sekk Ngge Sabar... 🥰💕</h5>
+      </div>
+    </div>
+
+    <!-- Main Page -->
+    <div class="main-page" id="main">
+      <div class="text-center">
+        <h1 data-aos="fade-down">Happy Birthday, Cintakuu! 💖</h1>
+        <p data-aos="fade-up">Reza Artika Diva Ayu Pramesti💗🤍.</p>
+      </div>
+
+      <div class="container">
+        <!-- Carousel Foto -->
+        <div
+          id="carouselFoto"
+          class="carousel slide mb-4"
+          data-bs-ride="carousel"
+          data-aos="zoom-in">
+          <div class="carousel-inner rounded-4 shadow-sm">
+            <div class="carousel-item active">
+              <img
+                src="WhatsApp Image 2025-07-08 at 12.39.32_6e63e148.jpg"
+                class="d-block w-100"
+                alt="Foto 1" />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="WhatsApp Image 2025-07-08 at 12.39.33_dc19c9ab.jpg"
+                class="d-block w-100"
+                alt="Foto 2" />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="WhatsApp Image 2025-07-08 at 12.39.33_e27a5c07.jpg"
+                class="d-block w-100"
+                alt="Foto 3" />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselFoto"
+            data-bs-slide="prev">
+            <span
+              class="carousel-control-prev-icon bg-light rounded-circle p-2"></span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselFoto"
+            data-bs-slide="next">
+            <span
+              class="carousel-control-next-icon bg-light rounded-circle p-2"></span>
+          </button>
+        </div>
+
+        <!-- Pesan Romantis dengan efek ketikan -->
+        <div class="message-box text-center" data-aos="fade-up">
+          <p id="typewriter"></p>
+        </div>
+
+        <!-- Kalender Ulang Tahun -->
+        <div class="message-box mt-4" data-aos="zoom-in">
+          <h4 class="mb-3">📅 It's Your Birthday</h4>
+          <div class="calendar-box">
+            <div class="calendar-header">Juli 2025</div>
+            <div class="calendar-body">
+              <div class="calendar-day">M</div>
+              <div class="calendar-day">S</div>
+              <div class="calendar-day">S</div>
+              <div class="calendar-day">R</div>
+              <div class="calendar-day">K</div>
+              <div class="calendar-day">J</div>
+              <div class="calendar-day">S</div>
+              <div class="calendar-cell empty"></div>
+              <div class="calendar-cell empty"></div>
+              <div class="calendar-cell">1</div>
+              <div class="calendar-cell">2</div>
+              <div class="calendar-cell">3</div>
+              <div class="calendar-cell">4</div>
+              <div class="calendar-cell">5</div>
+              <div class="calendar-cell">6</div>
+              <div class="calendar-cell">7</div>
+              <div class="calendar-cell">8</div>
+              <div class="calendar-cell">9</div>
+              <div class="calendar-cell">10</div>
+              <div class="calendar-cell">11</div>
+              <div class="calendar-cell">12</div>
+              <div class="calendar-cell">13</div>
+              <div class="calendar-cell">14</div>
+              <div class="calendar-cell">15</div>
+              <div class="calendar-cell">16</div>
+              <div class="calendar-cell">17</div>
+              <div class="calendar-cell">18</div>
+              <div class="calendar-cell">19</div>
+              <div class="calendar-cell">20</div>
+              <div class="calendar-cell">21</div>
+              <div class="calendar-cell">22</div>
+              <div class="calendar-cell highlight">23</div>
+              <div class="calendar-cell">24</div>
+              <div class="calendar-cell">25</div>
+              <div class="calendar-cell">26</div>
+              <div class="calendar-cell">27</div>
+              <div class="calendar-cell">28</div>
+              <div class="calendar-cell">29</div>
+              <div class="calendar-cell">30</div>
+              <div class="calendar-cell">31</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LOVE -->
+        <div
+          class="message-box mt-4"
+          data-aos="zoom-in-up"
+          style="text-align: left">
+          <h4 class="mb-3" style="text-align: center">💕 LOVE 💕</h4>
+          <span style="color: #d62828; font-weight: bold; font-size: x-large"
+            >L</span
+          >
+          ove You💕<br />
+          <span style="color: #d62828; font-weight: bold; font-size: x-large"
+            >O</span
+          >
+          nly You💕<br />
+          <span style="color: #d62828; font-weight: bold; font-size: x-large"
+            >V</span
+          >
+          ery" Much💕<br />
+          <span style="color: #d62828; font-weight: bold; font-size: x-large"
+            >E</span
+          >
+          veryday, More & More💕<br />
+        </div>
+
+        <!-- Ucapan Lucu -->
+        <div class="mt-4">
+          <div class="card-quote" data-aos="fade-left">
+            🌍 Bumi punya banyak orang HEBAT kamu salah satunya 🌞
+          </div>
+          <div class="card-quote" data-aos="fade-right">
+            💌 Kamu nggak makin tua, cuma makin menggemaskan aja 💕
+          </div>
+          <div class="card-quote" data-aos="fade-up">
+            ME + YOU : 💕 <br />
+            ME - YOU : 😢
+          </div>
+          <div class="card-quote" data-aos="fade-left">
+            🎁 I FEEL SO LUCKY HAVING YOU IN MY LIFE 😘
+          </div>
+          <div class="card-quote" data-aos="fade-up">
+            🎉 THANK YOU FOR BEING BORN 😊
+          </div>
+        </div>
+
+        <!-- Momen-Momen Kecil -->
+        <div class="message-box mt-4" data-aos="fade-up">
+          <h4 class="mb-3">Momen-Momen Kecil yang Tak Kulupakan 💫</h4>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              📸 Saat kita saling pandang dan tertawa tanpa alasan.
+            </li>
+            <li class="list-group-item">
+              🍟 Ketika kamu kasih sisa makanan favoritmu ke aku.
+            </li>
+            <li class="list-group-item">
+              🌧️ Saat kita berteduh bareng dan ngobrol tanpa henti.
+            </li>
+            <li class="list-group-item">
+              🛌 Saat kamu tertidur sambil pegang tanganku.
+            </li>
+            <li class="list-group-item">
+              📱 Bahkan voice note pendekmu bisa bikin hariku cerah.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Andai Kamu Tahu -->
+        <div class="message-box mt-4" data-aos="zoom-in-up">
+          <h4 class="mb-3">Andai Kamu Tahu... 🥺</h4>
+          <p>
+            Kamu tahu nggak? Tiap kali kamu senyum, rasanya kayak semua hal
+            berat di hidup ini jadi ringan. Pelukanmu tuh tempat paling nyaman,
+            bukan cuma buat badan, tapi juga buat hati. Dan di ujung semua itu,
+            aku cuma pengen satu: kamu... selamanya.
+          </p>
+        </div>
+
+        <!-- Message -->
+        <div class="message-box mt-4" data-aos="fade-up">
+          <h4 class="mb-3">Message For You ✍️</h4>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              😇 Jangan Tinggalin
+              <span style="color: #d62828; font-weight: bold">SHOLAT</span>.
+            </li>
+            <li class="list-group-item">
+              👀 Jaga
+              <span style="color: #d62828; font-weight: bold">MATA</span>, Jaga
+              <span style="color: #d62828; font-weight: bold">HATI</span>.
+            </li>
+            <li class="list-group-item">
+              😹 Jangan Suka
+              <span style="color: #d62828; font-weight: bold">NGEYEL</span>.
+            </li>
+            <li class="list-group-item">
+              ☕ Jangan
+              <span style="color: #d62828; font-weight: bold">KOPI</span>
+              Terosssss!!!!!!!!.
+            </li>
+            <li class="list-group-item">
+              🚑 Jaga
+              <span style="color: #d62828; font-weight: bold">KESEHATAN</span>.
+              🏥
+            </li>
+          </ul>
+        </div>
+        <footer class="mt-5">
+          Dah yaaa segitu duluu. karena mas gabisa kasi kata" manis, mas cuma
+          bisa kasi bukti kalo mas sayang kamuu 😘🥰😍💗🤍 <br />Selalu
+          milikmu,<br />Ivan 💕
+        </footer>
+        <br /><br /><br />
+      </div>
+    </div>
+
+    <!-- Musik -->
+    <div id="music-box">
+      <iframe
+        id="ytiframe"
+        width="1"
+        height="1"
+        src=""
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init();
+
+      const text =
+        "haloo cantikkk💗🤍, selamatt ulangg tahun yaaa sayanggg, tepat pada hari ini umur kamuu bertambahh satuu tahunn, ciieeee dah kepala 2😊. semogaa rezeki kamuu di lancarkan dan segala urusann kamuu di mudahkan yaaa sayangg, semogaa kamu sehat² truus yaa, aku berharap semoga kamu bisa menjadi pribadi yangg lebih baik kedepannyaa, tambah dewasa, terimakasih udah menjadi perempuan yang kuat sampai saat ini, terimakasih udah bertahan sampai selama ini, dan terimakasii udah menjadi perempuan yang hebat.bahagia selalu yaa sayanggg";
+      const speed = 35;
+      let i = 0;
+
+      function typeWriter() {
+        if (i < text.length) {
+          document.getElementById("typewriter").innerHTML += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+
+      function startLoading() {
+        document.getElementById("landing").style.display = "none";
+        document.getElementById("loading").style.display = "flex";
+
+        document.getElementById("ytiframe").src =
+          "https://www.youtube.com/embed/QJlPBjQ9b6c?autoplay=1&loop=1&playlist=QJlPBjQ9b6c";
+
+        setTimeout(() => {
+          document.getElementById("loading").style.display = "none";
+          document.getElementById("main").style.display = "flex";
+          typeWriter();
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
